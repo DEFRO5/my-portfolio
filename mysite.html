@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nithishkumar Dhanasekaran - DevOps Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #dab464;
+            --secondary-color: #3498db;
+            --text-color: #333;
+            --light-bg: #f5f6fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+        }
+
+        header {
+            background: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 1rem;
+            border: 4px solid white;
+            object-fit: cover;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .about {
+            background: var(--light-bg);
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .projects {
+            background: white;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .project-card {
+            position: relative;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(45, 62, 80, 0.9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            text-align: center;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-card:hover .project-image {
+            transform: scale(1.1);
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: white;
+        }
+
+        .project-description {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        .contact {
+            background: var(--primary-color);
+            color: rgb(255, 255, 255);
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        h2 {
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            z-index: 1000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border: 2px solid white;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 30px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://lh3.googleusercontent.com/pw/AP1GczM6WxoQcfimoHGSPmPHTFymFtVHpAFKiCRLKfcjDMlszMYA7BIhbaBamN1qDBRQcAfoTgJEJ4DYXPExBSkLZAa-MzC0pLfeJ2EUE_Iu1hI2htDBzqegG51kdO2DZQsc5KgyOWJpsWWaWI2_MmsS_h42sA=w869-h926-s-no" alt="Profile Picture" class="profile-img">
+        <h1 class="outlined-text">Nithishkumar Dhanasekaran</h1>
+        <p>DevOps Engineer | Cloud Architect | CyberSecurity Specialist</p>
+    </header>
+
+    <section class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Welcome to my portfolio! I'm a motivated fresher specializing in DevOps and Cybersecurity, with a strong foundation in automation, cloud infrastructure, and network security. I’m also proud to hold the AWS Certified Solutions Architect – Associate (SAA) certification, highlighting my ability to design and deploy secure, scalable, and cost-effective cloud solutions.
+                I'm passionate about leveraging modern DevOps practices to optimize workflows and enhance efficiency, while integrating robust cybersecurity measures to protect digital environments. Whether it’s building CI/CD pipelines, managing containerized applications, or architecting secure systems on AWS, I’m dedicated to delivering innovative and reliable solutions.
+                Explore my work and see how I combine technical expertise and a proactive approach to create impactful results in the tech industry.</p>
+            <br>
+            <h2>Skills</h2>
+            <div class="skills">
+                <span class="skill-tag">AWS</span>
+                <span class="skill-tag">Docker</span>
+                <span class="skill-tag">Kubernetes</span>
+                <span class="skill-tag">Terraform</span>
+                <span class="skill-tag">Jenkins</span>
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Ansible</span>
+                <span class="skill-tag">Linux</span>
+                <span class="skill-tag">Monitoring</span>
+                <span class="skill-tag">Api</span>
+                <span class="skill-tag">Cybersecurity</span>
+                <span class="skill-tag">Web app Pentesting</span>
+                <span class="skill-tag">Android pentesting</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <img src="https://raw.githubusercontent.com/DEFRO5/my-portfolio/refs/heads/main/Serverless%20File%20conversion%20.png" alt="Kubernetes Project" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Serverless File Conversion</h3>
+                        <p class="project-description">Built a file conversion system using AWS Glue jobs to easily process and transform files.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://raw.githubusercontent.com/DEFRO5/my-portfolio/refs/heads/main/Serverless%20Webapp.png" alt="CI/CD Pipeline Project" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">serverless webapp</h3>
+                        <p class="project-description">A simple serverless webapp in the cloud</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://raw.githubusercontent.com/DEFRO5/my-portfolio/refs/heads/main/ecs%20cats%20and%20dogs.png" alt="Cloud Optimization Project" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">ECS Cats and Dogs</h3>
+                        <p class="project-description">Set up ECS to deploy and manage containers for a 'Cats and Dogs' application on AWS, ensuring scalability and efficient orchestration.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczMQppuZat4qrG-51EBEzboW1fAlvaKGohLOdmd5DB4a73HrIIazW0toqTKnf41PxabtyewdsjjqzxQg1nXh9wJY2VL6POanVpdo-1oTudFpLjURlNjQc9U6aDgS92PyyeB_XXy3G7uWfEe-G_swj2AuGg=w1453-h707-s-no" alt="Monitoring Project" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Duolingo Exploit</h3>
+                        <p class="project-description">Exploited duolingo to buy gems and super subscription for free.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczOkWc3EUyAi2miBVfs2RnyPxeJwIj0tuzbvh2_2F-rs7-JsyhoQkETL1v7QEJx9wLI3zCMG6DdYohdy3TZmRrNPhbKaJbYlN2ElFBnpq2Yqzus2140g-NyIXypUllhVZgXGNvKsMf9g8HXb7WGmhxpNcA=w508-h140-s-no" alt="Infrastructure Project" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">XSS in Govt Website</h3>
+                        <p class="project-description">Found a cross site scripting(XSS) in govt website.</p>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://lh3.googleusercontent.com/pw/AP1GczOo_WwHXDLNKO3JgLSTl7YkYZZ_Vh2ZFy16l7uykQNsEIPWNXleovAD_eMTw7LsBdIp4UFeA_iqnoT32I6g0ujvcD5LdG8ddBkMPGhTOuQELmSmlheLPIvj8A2RcE3cYZJ93gXGlxrlVikM-6i5-00g9w=w668-h147-s-no" alt="Security Project" class="project-image">
+                    <div class="project-overlay">
+                        <h3 class="project-title">Dos in chat application</h3>
+                        <p class="project-description">Found a DOS vulnerability in one of the biggest chat application.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h3>Get in Touch</h3>
+            <br>
+            <p>Feel free to reach out for collaborations or just a friendly chat</p>
+            <div class="social-links">
+                <a href="https://github.com/DEFRO5"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/nithishkumardhanasekaran/"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:d.nithishkumarrr@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal for expanded images -->
+    <div class="modal" id="imageModal">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="expandedImage">
+    </div>
+
+    <script>
+        // Modal functionality
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('expandedImage');
+        const closeBtn = document.getElementsByClassName('close-modal')[0];
+        
+        // Get all project cards
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        // Add click event to project cards
+        projectCards.forEach(card => {
+            card.addEventListener('click', function(e) {
+                const img = this.querySelector('.project-image');
+                modal.classList.add('active');
+                modalImg.src = img.src;
+            });
+        });
+        
+        // Close modal when clicking the close button
+        closeBtn.onclick = function() {
+            modal.classList.remove('active');
+        }
+        
+        // Close modal when clicking outside the image
+        modal.onclick = function(e) {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        }
+        
+        // Close modal with escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
